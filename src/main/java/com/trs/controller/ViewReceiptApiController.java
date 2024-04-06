@@ -1,4 +1,4 @@
-package com.trs.service;
+package com.trs.controller;
 
 
 import com.trs.api.ReceiptsApi;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class ViewReceiptService implements ReceiptsApi {
+public class ViewReceiptApiController implements ReceiptsApi {
 
     @Autowired
     com.trs.service.mem.ReceiptService receiptService;

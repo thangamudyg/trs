@@ -1,4 +1,4 @@
-package com.trs.service;
+package com.trs.controller;
 
 import com.trs.api.BuyTicketApi;
 import com.trs.entity.Booking;
@@ -16,12 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class BuyTicketService implements BuyTicketApi {
+public class BuyTicketApiController implements BuyTicketApi {
 
     @Autowired
     BookingService bookingService;

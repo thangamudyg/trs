@@ -1,11 +1,9 @@
-package com.trs.service;
+package com.trs.controller;
 
 import com.trs.api.OffBoardApi;
-import com.trs.entity.Booking;
 import com.trs.entity.Person;
 import com.trs.entity.Receipt;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class RemovePassengerService implements OffBoardApi {
+public class RemovePassengerApiController implements OffBoardApi {
 
     @Autowired
     com.trs.service.mem.PersonService personService;

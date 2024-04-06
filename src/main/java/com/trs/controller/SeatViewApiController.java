@@ -1,4 +1,4 @@
-package com.trs.service;
+package com.trs.controller;
 
 import com.trs.api.ViewSeatApi;
 import com.trs.entity.Booking;
@@ -11,12 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-public class SeatViewService implements ViewSeatApi {
+public class SeatViewApiController implements ViewSeatApi {
 
     @Autowired
     BookingService bookingService;

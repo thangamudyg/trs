@@ -1,4 +1,4 @@
-package com.trs.service;
+package com.trs.controller;
 
 import com.trs.api.ModifySeatApi;
 
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class ModifySeatService implements ModifySeatApi {
+public class ModifySeatApiController implements ModifySeatApi {
 
     @Autowired
     com.trs.service.mem.PersonService personService;

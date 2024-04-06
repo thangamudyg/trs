@@ -1,4 +1,4 @@
-package com.trs.service;
+package com.trs.controller;
 
 
 import com.trs.api.PassengerApi;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class ViewPassengerService implements PassengerApi {
+public class ViewPassengerApiController implements PassengerApi {
 
     @Autowired
     com.trs.service.mem.TrainService trainService;
