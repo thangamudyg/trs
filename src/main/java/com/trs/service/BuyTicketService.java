@@ -61,6 +61,7 @@ public class BuyTicketService implements BuyTicketApi {
         booking.setSeat_number(section.getSeatNumber());
         booking.setSection_name(section.getSectionName());
         booking.setReceipt_id(receipt.getReceipt_id());
+        booking.setUser_id(receipt.getUser_id());
         bookingService.save(booking);
 
         // Prepare response

@@ -12,7 +12,7 @@ public class Booking {
     @GeneratedValue
     private int id;
     private int receipt_id;
-
+    private int user_id;
     private int train_number;
     private String section_name;
     private int seat_number;
@@ -31,6 +31,14 @@ public class Booking {
 
     public void setReceipt_id(int receipt_id) {
         this.receipt_id = receipt_id;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public int getTrain_number() {

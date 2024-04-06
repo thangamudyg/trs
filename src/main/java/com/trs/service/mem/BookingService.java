@@ -20,6 +20,10 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
+    public List<Booking> findByTrainNumber(Long train_number) {
+        return bookingRepository.findByTrainNumber(train_number);
+    }
+
     public void save(Booking booking) {
         bookingRepository.save(booking);
     }

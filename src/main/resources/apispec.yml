@@ -87,8 +87,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Receipt'
+  /passenger/{train-number}:
+    get:
+      tags:
+        - Passenger List
+      description: returns all the passenger list
+      operationId: gePassengerList
+      parameters:
+        - name: train-number
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: All the passenger list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  allOf:
+                    - $ref: '#/components/schemas/Passenger'
 components:
   schemas:
+    Passenger:
+      type: object
+      properties:
+        booking :
+          $ref: '#/components/schemas/Booking'
+        user :
+          $ref: '#/components/schemas/User'
     Receipt:
       type: object
       properties:
