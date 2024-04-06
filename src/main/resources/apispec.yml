@@ -109,9 +109,6 @@ components:
     User:
       type: object
       properties:
-        user_id:
-          type: integer
-          format: int32
         first_name:
           type: string
         last_name:
@@ -142,7 +139,7 @@ components:
     Booking:
       type: object
       properties:
-        receipt_id:
+        train_number:
           type: integer
           format: int32
         section_name:

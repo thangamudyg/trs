@@ -2,7 +2,6 @@ package com.trs.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
 
 @Entity
 @Table(name = "Receipt")
@@ -14,6 +13,10 @@ public class Receipt {
     private String from_station;
     private String to_station;
     private double price;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "receipt_id", referencedColumnName = "receipt_id")
+    private Booking booking;
 
     public int getReceipt_id() {
         return receipt_id;
@@ -53,5 +56,12 @@ public class Receipt {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Booking getBooking() {
+        return booking;
+    }
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 }

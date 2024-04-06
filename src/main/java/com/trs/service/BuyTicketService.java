@@ -65,13 +65,13 @@ public class BuyTicketService implements BuyTicketApi {
 
         // Prepare response
         Receipt receiptResp = new Receipt();
+        receiptResp.setPrice(receipt.getPrice());
         com.trs.model.Booking bookingResp = new com.trs.model.Booking();
         bookingResp.setSectionName(booking.getSection_name());
         bookingResp.setSeatNumber(String.valueOf(booking.getSeat_number()));
-        bookingResp.setReceiptId(receipt.getReceipt_id());
+        bookingResp.setTrainNumber(booking.getTrain_number());
         receiptResp.setBooking(bookingResp);
         User user = new User();
-        user.setUserId(Integer.valueOf(userId));
         user.setFirstName(person.get().getFirst_name());
         user.setLastName(person.get().getLast_name());
         user.setEmail(person.get().getEmail_address());
