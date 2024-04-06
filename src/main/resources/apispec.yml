@@ -1,7 +1,8 @@
 openapi: 3.0.0
 servers:
-  - url: http://localhost:8000/
-    description: "local host"
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/THANGAMUDYGURUSAMY_1/trs/1.0.1
 info:
   version: 1.0.1
   title: trs-api
@@ -9,6 +10,35 @@ info:
   contact:
     email: "thangamudy.gurusamy@gmail.com"
 paths:
+  /view-seat/{user-id}:
+    post:
+      tags:
+        - Seat View
+      description: returns all available seat for the section
+      operationId: getSeat
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Boarding'
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: All the receipts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  allOf:
+                    - $ref: '#/components/schemas/Section'
   /receipts/{user-id}:
     get:
       tags:
@@ -30,13 +60,13 @@ paths:
                 type: array
                 items:
                   allOf:
-                    - $ref: '#/components/schemas/Receipts'
-  /purshase/{user-id}:
+                    - $ref: '#/components/schemas/Receipt'
+  /buy-ticket/{user-id}:
     post:
       tags:
-        - Purchase
+        - Buy Ticket
       description: returns receipt for booking
-      operationId: purchase
+      operationId: buyTicket
       requestBody:
         description: Optional description in *Markdown*
         required: true
@@ -56,42 +86,74 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Receipts'
+                $ref: '#/components/schemas/Receipt'
 components:
   schemas:
-    Receipts:
+    Receipt:
       type: object
       properties:
-        id:
+        receipt_id:
           type: integer
           format: int32
-        from:
+        from_station:
           type: string
-        to:
+        to_station:
           type: string
         price:
           type: number
           format: double
+        booking :
+          $ref: '#/components/schemas/Booking'
         user :
           $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
-        id:
+        user_id:
           type: integer
           format: int32
-        email:
-          type: string
         first_name:
           type: string
         last_name:
           type: string
+        email:
+          type: string
     Boarding:
       type: object
       properties:
-        from:
+        train_number:
+          type: integer
+          format: int32
+        from_station:
           type: string
-        to:
+        to_station:
           type: string
-        user :
-          $ref: '#/components/schemas/User'
+    Section:
+      type: object
+      properties:
+        train_number:
+          type: integer
+          format: int32
+        section_name:
+          type: string
+        seat_number:
+          type: integer
+          format: int32
+    Booking:
+      type: object
+      properties:
+        receipt_id:
+          type: integer
+          format: int32
+        section_name:
+          type: string
+        seat_number:
+          type: string
+    Train:
+      type: object
+      properties:
+        train_number:
+          type: integer
+          format: int32
+        train_name:
+          type: string
