@@ -1,0 +1,97 @@
+openapi: 3.0.0
+servers:
+  - url: http://localhost:8000/
+    description: "local host"
+info:
+  version: 1.0.1
+  title: trs-api
+  description: The API for the TRS project
+  contact:
+    email: "thangamudy.gurusamy@gmail.com"
+paths:
+  /receipts/{user-id}:
+    get:
+      tags:
+        - Receipt
+      description: returns all receipts for the user
+      operationId: getReceipt
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: All the receipts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  allOf:
+                    - $ref: '#/components/schemas/Receipts'
+  /purshase/{user-id}:
+    post:
+      tags:
+        - Purchase
+      description: returns receipt for booking
+      operationId: purchase
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Boarding'
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: All the receipts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receipts'
+components:
+  schemas:
+    Receipts:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        from:
+          type: string
+        to:
+          type: string
+        price:
+          type: number
+          format: double
+        user :
+          $ref: '#/components/schemas/User'
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+    Boarding:
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        user :
+          $ref: '#/components/schemas/User'
