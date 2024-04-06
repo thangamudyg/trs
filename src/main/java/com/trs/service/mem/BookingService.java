@@ -24,6 +24,14 @@ public class BookingService {
         return bookingRepository.findByTrainNumber(train_number);
     }
 
+    public List<Booking> findByUserId(Long user_id) {
+        return bookingRepository.findByUserId(user_id);
+    }
+
+    public Booking findByUserAndReceiptId(Long user_id, Long receipt_id) {
+        return bookingRepository.findByUserAndReceiptId(user_id, receipt_id);
+    }
+
     public void save(Booking booking) {
         bookingRepository.save(booking);
     }

@@ -107,6 +107,32 @@ paths:
               schema:
                 type: string
                 example: 'SUCCESS'
+  /modify-seat/{user-id}:
+    post:
+      tags:
+        - Modify Seat
+      description: modify seat
+      operationId: modifySeat
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Booking'
+      responses:
+        '200':
+          description: All the receipts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Receipt'
   /passenger/{train-number}:
     get:
       tags:
@@ -188,6 +214,10 @@ components:
     Booking:
       type: object
       properties:
+        receipt_id:
+          type: integer
+          format: int32
+          x-field-extra-annotation: "@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)"
         train_number:
           type: integer
           format: int32
