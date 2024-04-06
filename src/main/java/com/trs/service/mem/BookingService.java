@@ -27,4 +27,8 @@ public class BookingService {
     public void save(Booking booking) {
         bookingRepository.save(booking);
     }
+
+    public void remove(Booking booking) {
+        bookingRepository.delete(booking);
+    }
 }

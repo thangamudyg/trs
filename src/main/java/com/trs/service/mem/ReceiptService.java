@@ -25,4 +25,8 @@ public class ReceiptService {
     public void save(Receipt receipt) {
         receiptRepository.save(receipt);
     }
+
+    public void remove(Receipt receipt) {
+        receiptRepository.delete(receipt);
+    }
 }

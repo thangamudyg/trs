@@ -14,7 +14,7 @@ public class Receipt {
     private String to_station;
     private double price;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "receipt_id", referencedColumnName = "receipt_id")
     private Booking booking;
 

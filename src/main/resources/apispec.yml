@@ -87,6 +87,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Receipt'
+  /off-board/{user-id}:
+    delete:
+      tags:
+        - Off Board User
+      description: returns receipt for booking
+      operationId: offBoard
+      parameters:
+        - name: user-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: All the receipts
+          content:
+            application/json:
+              schema:
+                type: string
+                example: 'SUCCESS'
   /passenger/{train-number}:
     get:
       tags:
