@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * @author Thangamudy Gurusamy
+ * Date : 06/04/24
+ * Package : com.trs.service.mem
+ */
 @Service
 public class BookingService {
     @Autowired
@@ -22,10 +27,6 @@ public class BookingService {
 
     public List<Booking> findByTrainNumber(Long train_number) {
         return bookingRepository.findByTrainNumber(train_number);
-    }
-
-    public List<Booking> findByUserId(Long user_id) {
-        return bookingRepository.findByUserId(user_id);
     }
 
     public Booking findByUserAndReceiptId(Long user_id, Long receipt_id) {

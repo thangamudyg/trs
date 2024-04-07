@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * @author Thangamudy Gurusamy
+ * Date : 06/04/24
+ * Package : com.trs.util
+ */
 public class MyUtil {
 
     public static List<Section>  getAvailableSeat(List<Booking> bookingList, List<Sections> sectionsList) {

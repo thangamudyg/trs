@@ -5,6 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * @author Thangamudy Gurusamy
+ * Date : 06/04/24
+ * Package : com.trs.entity
+ */
 @Entity
 @Table(name = "Boarding")
 public class Boarding {
