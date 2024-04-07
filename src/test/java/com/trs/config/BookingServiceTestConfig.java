@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Profile;
 /**
  * @author Thangamudy Gurusamy
  * Date : 07/04/24
- * Package : com.trs.confgi
+ * Package : com.trs.config
  */
 @Profile("test")
 @Configuration

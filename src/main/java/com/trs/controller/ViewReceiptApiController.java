@@ -31,13 +31,13 @@ public class ViewReceiptApiController implements ReceiptsApi {
     public ResponseEntity<List<Receipt>> getReceipt(String userId) {
         Optional<Person> person = personService.findById(Long.valueOf(userId));
         if(!person.isPresent()) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.noContent().build();
         }
 
         List<com.trs.entity.Receipt> receipts = receiptService.findByUserId(Long.valueOf(userId));
 
         if(receipts.isEmpty()) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.noContent().build();
         }
         List<Receipt> receiptListResp = new ArrayList<>();
         receipts.forEach(r -> {
