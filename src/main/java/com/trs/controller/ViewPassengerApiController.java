@@ -35,12 +35,12 @@ public class ViewPassengerApiController implements PassengerApi {
     @Override
     public ResponseEntity<List<Passenger>> gePassengerList(String trainNumber) {
         Optional<Train> train = trainService.findById(Long.valueOf(trainNumber));
-        if(!train.isPresent()) {
-            return ResponseEntity.badRequest().build();
+        if(train.isEmpty()) {
+            return ResponseEntity.noContent().build();
         }
         List<Booking> bookings = bookingService.findByTrainNumber(Long.valueOf(trainNumber));
         if(bookings.isEmpty()) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.noContent().build();
         }
         List<Passenger> passengers = new ArrayList<>();
         bookings.forEach(b -> {

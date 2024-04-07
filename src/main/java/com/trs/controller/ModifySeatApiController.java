@@ -40,7 +40,7 @@ public class ModifySeatApiController implements ModifySeatApi {
             return ResponseEntity.badRequest().build();
         }
         com.trs.entity.Booking bookingRecord = bookingService.findByUserAndReceiptId(Long.valueOf(userId), Long.valueOf(booking.getReceiptId()));
-        bookingRecord.setSeat_number(Integer.valueOf(booking.getSeatNumber()));
+        bookingRecord.setSeat_number(Integer.parseInt(booking.getSeatNumber()));
         bookingRecord.setSection_name(booking.getSectionName());
         bookingService.save(bookingRecord);
 
