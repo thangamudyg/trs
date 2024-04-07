@@ -1,6 +1,5 @@
 package com.trs.controller;
 
-import com.trs.TicketReservSysApplication;
 import com.trs.model.Receipt;
 import com.trs.service.mem.BookingService;
 import com.trs.service.mem.PersonService;
@@ -13,10 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Optional;
@@ -29,23 +25,21 @@ import static org.mockito.Mockito.doNothing;
  * Date : 07/04/24
  * Package : com.trs.controller
  */
-@ActiveProfiles("test")
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = TicketReservSysApplication.class)
 public class BuyTicketApiControllerTest {
     @InjectMocks
     BuyTicketApiController buyTicketApiController;
 
-    @Autowired
+    @Mock
     PersonService personService;
 
-    @Autowired
+    @Mock
     BookingService bookingService;
 
-    @Autowired
+    @Mock
     SectionService sectionService;
 
-    @Autowired
+    @Mock
     ReceiptService receiptService;
 
     @Before
