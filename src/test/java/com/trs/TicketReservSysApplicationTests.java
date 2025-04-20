@@ -8,6 +8,7 @@ class TicketReservSysApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//test
 	}
 
 }
